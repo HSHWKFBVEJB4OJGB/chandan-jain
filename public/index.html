@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chandan  Jain | Numerology Expert</title>
+  <meta name="description" content="Unlock your life’s purpose with India’s leading expert in Numerology . Get personalized consultations, courses, reports, and tools.">
+  
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <style>
+    :root {
+      --color-primary: #ff4500;
+      --color-primary-dark: #e03e00;
+      --color-bg-light: #ffffff;
+      --color-bg-alt: #faf9f7;
+      --color-bg-cream: #f5f0e6;
+      --color-bg-dark: #1a1a2e;
+      --color-text: #1a1a1a;
+      --color-text-light: #444444;
+      --color-text-muted: #555555;
+      --color-border: #e5e5e5;
+      --max-width: 1200px;
+      --transition: all 0.4s ease;
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--color-bg-light);
+      color: var(--color-text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .container {
+      width: min(100% - 32px, var(--max-width));
+      margin-inline: auto;
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+
+    /* ==================== Preloader ==================== */
+    #preloader {
+      position: fixed;
+      inset: 0;
+      background: var(--color-bg-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.8s ease 0.8s, visibility 0s 1.6s;
+    }
+
+    #preloader.fade-out {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .preloader-brand {
+      font-size: clamp(2.4rem, 10vw, 3.5rem);
+      font-weight: 700;
+      color: var(--color-primary);
+      opacity: 0;
+      animation: brandFadeIn 1.4s ease forwards;
+    }
+
+    @keyframes brandFadeIn {
+      0% { opacity: 0; transform: scale(0.8); }
+      60% { opacity: 1; transform: scale(1.1); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    /* ==================== Scroll Animations ==================== */
+    .aos {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .aos.animated {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .aos-delay-1 { transition-delay: 0.1s; }
+    .aos-delay-2 { transition-delay: 0.2s; }
+    .aos-delay-3 { transition-delay: 0.3s; }
+    .aos-delay-4 { transition-delay: 0.4s; }
+
+    /* Hero image specific animation (slide in from right) */
+    .hero-img-aos {
+      opacity: 0;
+      transform: translateX(80px);
+      transition: opacity 1s ease 0.2s, transform 1s cubic-bezier(0.22, 1, 0.36, 1) 0.2s;
+    }
+
+    .hero-img-aos.animated {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Card specific */
+    .card-aos {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.7s ease;
+    }
+
+    .card-aos.animated {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card:hover, .vertical-card:hover {
+      transform: translateY(-12px) scale(1.03);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+    }
+
+    /* ==================== Existing Styles (unchanged) ==================== */
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(253, 253, 253, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--color-border);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+      z-index: 1000;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 0;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: clamp(1.4rem, 5vw, 1.625rem);
+      font-weight: 700;
+      color: #000;
+    }
+
+    .logo svg {
+      width: 36px;
+      height: 36px;
+      fill: var(--color-primary);
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      font-weight: 600;
+      justify-content: center;
+    }
+
+    .nav-links a {
+      position: relative;
+      font-size: clamp(0.875rem, 3vw, 1rem);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--color-primary);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--color-primary);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .login-btn {
+      padding: 0.625rem 1.75rem;
+      border: 2px solid var(--color-primary);
+      border-radius: 50px;
+      background: transparent;
+      color: var(--color-primary);
+      font-weight: 600;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .login-btn:hover {
+      background: var(--color-primary);
+      color: #fff;
+    }
+
+    section {
+      padding: clamp(4rem, 12vw, 6rem) 0;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 6vw, 2.25rem);
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .section-subtitle {
+      font-size: clamp(1rem, 3.2vw, 1.125rem);
+      color: var(--color-text-muted);
+      max-width: 800px;
+      margin: 0 auto 3.75rem;
+      text-align: center;
+    }
+
+    .cta {
+      display: inline-block;
+      padding: 1rem 2.25rem;
+      background: var(--color-primary);
+      color: #fff;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+
+    .cta:hover {
+      background: var(--color-primary-dark);
+    }
+
+    .hero-section {
+      background: var(--color-bg-alt);
+      min-height: clamp(640px, 100vh, 800px);
+      display: grid;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('https://c8.alamy.com/comp/2F9BG5Y/droste-effect-background-with-infinite-clock-spiral-abstract-design-for-concepts-related-to-time-and-deadline-2F9BG5Y.jpg') center/cover no-repeat;
+      opacity: 0.08;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 8vw, 3rem);
+      line-height: 1.2;
+      color: var(--color-primary);
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .hero p {
+      font-size: 1.125rem;
+      margin: 1.875rem auto 2.5rem;
+      color: var(--color-text-light);
+      max-width: 90%;
+      text-align: center;
+    }
+
+    .hero-img {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+      aspect-ratio: 520 / 550;
+      position: relative;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    .hero-img::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('https://c8.alamy.com/comp/2F9BG5Y/droste-effect-background-with-infinite-clock-spiral-abstract-design-for-concepts-related-to-time-and-deadline-2F9BG5Y.jpg') center/contain no-repeat;
+      opacity: 0.15;
+      z-index: 1;
+    }
+
+    .hero-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      position: relative;
+      z-index: 2;
+    }
+
+    .verticals {
+      background: var(--color-bg-dark);
+      color: #eee;
+    }
+
+    .verticals .section-title,
+    .verticals .section-subtitle {
+      color: #fff;
+    }
+
+    .verticals .section-subtitle {
+      color: #ccc;
+    }
+
+    .verticals-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .vertical-card {
+      background: var(--color-bg-cream);
+      color: #333;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      transition: var(--transition);
+    }
+
+    .vertical-card h3 {
+      color: var(--color-primary);
+      font-size: 1.375rem;
+    }
+
+    .icon {
+      width: 60px;
+      height: 60px;
+      background: var(--color-primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .icon svg {
+      width: 30px;
+      height: 30px;
+      fill: #fff;
+    }
+
+    .expert-section {
+      background: var(--color-bg-cream);
+    }
+
+    .expert-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .expert-img {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      margin-top: 3rem;
+      justify-content: center;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-num {
+      font-size: clamp(1.8rem, 6vw, 2.25rem);
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+
+    .stat-label {
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-top: 0.5rem;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .cta-box {
+      background: var(--color-bg-dark);
+      color: #fff;
+      padding: 2.5rem 1.5rem;
+      border-radius: 20px;
+      text-align: center;
+    }
+
+    .cta-box h2 {
+      font-size: 2rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .cta-box p {
+      margin-bottom: 1.875rem;
+      color: #ccc;
+    }
+
+    .faq h2 {
+      color: var(--color-primary);
+      margin-bottom: 2.5rem;
+      text-align: center;
+    }
+
+    .faq-item {
+      margin-bottom: 1.875rem;
+    }
+
+    .faq-item h3 {
+      font-size: 1.125rem;
+      margin-bottom: 0.625rem;
+      color: var(--color-text);
+    }
+
+    .offerings .cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.875rem;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 16px;
+      padding: 2.5rem 1.8rem;
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .card h3 {
+      color: var(--color-primary);
+      font-size: 1.375rem;
+      margin-bottom: 1rem;
+    }
+
+    footer {
+      background: var(--color-bg-dark);
+      color: #ccc;
+      padding: 5rem 0 2.5rem;
+    }
+
+    .footer-inner {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2.5rem;
+      margin-bottom: 3.75rem;
+    }
+
+    .footer-inner strong {
+      color: #fff;
+      font-size: 1rem;
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .footer-inner a:hover {
+      color: var(--color-primary);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1.25rem;
+      margin-top: 1.25rem;
+    }
+
+    .social-links a {
+      font-size: 1.25rem;
+    }
+
+    .newsletter input {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      border: none;
+      margin-top: 0.625rem;
+      font-size: 1rem;
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 2.5rem;
+      border-top: 1px solid #333;
+      font-size: 0.875rem;
+    }
+
+    /* Responsive - your original rules kept + small safe additions */
+    @media (max-width: 992px) {
+      .hero,
+      .expert-grid,
+      .faq-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 2.625rem;
+      }
+
+      .stats {
+        justify-content: center;
+      }
+
+      .verticals-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero p,
+      .section-subtitle {
+        max-width: none;
+      }
+
+      .hero-img-aos {
+        transform: translateY(60px);
+      }
+
+      .hero-img-aos.animated {
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      section {
+        padding: 5rem 0;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .nav-links {
+        gap: 1.25rem;
+        font-size: 0.875rem;
+      }
+
+      .offerings .cards {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 2.25rem;
+      }
+
+      .hero-section {
+        min-height: 700px;
+      }
+
+      .cta-box,
+      .faq h2 {
+        text-align: center;
+      }
+
+      .nav-links {
+        gap: 0.8rem;
+        font-size: 0.82rem;
+      }
+
+      .login-btn {
+        padding: 0.5rem 1.2rem;
+      }
+    }
+
+    /* === Enhanced modal styles – only this part updated for better phone/tablet/laptop fit === */
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(26, 26, 46, 0.75);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      padding: 10px;
+    }
+
+    .modal.show {
+      opacity: 1;
+    }
+
+    .modal-content {
+      background: white;
+      padding: clamp(1rem, 4vw, 2rem);
+      border-radius: 20px;
+      width: min(96%, 520px);
+      max-height: 94vh;
+      overflow-y: auto;
+      position: relative;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+      transform: translateY(20px);
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .modal.show .modal-content {
+      transform: translateY(0);
+    }
+
+    .close {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      font-size: clamp(2rem, 6vw, 2.4rem);
+      cursor: pointer;
+      color: #aaa;
+      transition: color 0.2s, transform 0.2s;
+      line-height: 1;
+    }
+
+    .close:hover {
+      color: var(--color-primary);
+      transform: rotate(90deg);
+    }
+
+    .modal-content h2 {
+      color: var(--color-primary);
+      font-size: clamp(1.6rem, 5vw, 1.9rem);
+      text-align: center;
+      margin-bottom: 0.6rem;
+    }
+
+    .modal-subtitle {
+      color: var(--color-text-muted);
+      font-size: clamp(0.9rem, 2.8vw, 0.98rem);
+      text-align: center;
+      margin-bottom: 1.6rem;
+    }
+
+    .calendar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .calendar-header button {
+      background: none;
+      border: none;
+      font-size: clamp(1.2rem, 4vw, 1.4rem);
+      cursor: pointer;
+      color: var(--color-primary);
+      padding: 8px;
+      transition: transform 0.2s;
+      min-width: 44px;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .calendar-header button:hover {
+      transform: scale(1.15);
+    }
+
+    .calendar-header h3 {
+      font-size: clamp(1.1rem, 3.5vw, 1.25rem);
+      color: #333;
+    }
+
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 4px;
+      text-align: center;
+    }
+
+    .calendar-weekdays {
+      font-weight: 600;
+      color: #777;
+      font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+      margin-bottom: 0.4rem;
+    }
+
+    .calendar-day {
+      padding: clamp(6px, 2vw, 12px) 0;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: clamp(0.85rem, 2.8vw, 0.95rem);
+      transition: all 0.2s;
+      min-height: clamp(36px, 10vw, 48px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .calendar-day:hover {
+      background: #ffece6;
+      color: var(--color-primary);
+    }
+
+    .calendar-day.today {
+      background: #fff0e6;
+      font-weight: bold;
+    }
+
+    .calendar-day.selected {
+      background: var(--color-primary);
+      color: white;
+      font-weight: bold;
+    }
+
+    .calendar-day.disabled {
+      color: #ccc;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    .time-slots {
+      margin: 1.6rem 0;
+    }
+
+    .time-slots h4 {
+      font-size: clamp(1rem, 3.2vw, 1.1rem);
+      color: #444;
+      margin-bottom: 0.7rem;
+    }
+
+    .slot-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 1rem;
+      justify-content: center;
+    }
+
+    .time-slot {
+      padding: clamp(8px, 2.5vw, 10px) clamp(12px, 3.5vw, 16px);
+      border: 1px solid #ddd;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: clamp(0.85rem, 2.8vw, 0.95rem);
+      transition: all 0.2s;
+      background: #f9f9f9;
+      min-width: 70px;
+      text-align: center;
+      min-height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .time-slot:hover {
+      border-color: var(--color-primary);
+      background: #fff5f2;
+    }
+
+    .time-slot.active {
+      background: var(--color-primary);
+      color: white;
+      border-color: var(--color-primary);
+    }
+
+    .info-note {
+      font-size: clamp(0.8rem, 2.6vw, 0.88rem);
+      color: #666;
+      text-align: center;
+      margin: 1rem 0 1.4rem;
+      font-style: italic;
+    }
+
+    #confirmBtn {
+      width: 100%;
+      padding: clamp(0.9rem, 3vw, 1.15rem);
+      background: var(--color-primary);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-size: clamp(0.98rem, 3.2vw, 1.08rem);
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s;
+      min-height: 50px;
+    }
+
+    #confirmBtn:hover:not(:disabled) {
+      background: var(--color-primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(255,69,0,0.3);
+    }
+
+    #confirmBtn:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+
+    /* Very small extra safety for tiny phones */
+    @media (max-width: 360px) {
+      .nav-links {
+        gap: 0.6rem;
+      }
+      .login-btn {
+        padding: 0.5rem 1rem;
+      }
+      .time-slot {
+        min-width: 65px;
+        padding: 8px 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="preloader-brand">Chandan  Jain</div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="nav container">
+      <a href="#" class="logo aos" aria-label="Chandan  Jain Home">
+        <svg viewBox="0 0 100 100" aria-hidden="true">
+          <path d="M50 5 L61.8 39.5 L99 39.5 L70.9 61.8 L81.8 95.5 L50 73.2 L18.2 95.5 L29.1 61.8 L1 39.5 L38.2 39.5 Z"/>
+        </svg>
+        Chandan  Jain
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section" aria-labelledby="hero-title">
+    <div class="container hero">
+      <div>
+        <h1 id="hero-title" class="aos">Unlock Your Life’s Purpose with India’s Leading Expert of Numerology </h1>
+        <p class="aos aos-delay-1">Ever wondered why your name, date of birth, and your house positioning all impact your life’s trajectory? Nothing is random. Learn how to unlock your potential with Numerology.</p>
+        <a href="#" onclick="openBookingModal(); return false;" class="cta">BOOK YOUR APPOINMENT</a>
+      </div>
+      <div class="hero-img hero-img-aos">
+        <img src="./hero.jpeg" alt="Chandan  Jain – Numerology Expert">
+      </div>
+    </div>
+  </section>
+
+  <!-- Business Verticals -->
+  <section class="verticals" id="verticals" aria-labelledby="verticals-title">
+    <div class="container">
+      <h2 id="verticals-title" class="section-title aos">Our Business Verticals</h2>
+      <p class="section-subtitle aos aos-delay-1">
+        We provide comprehensive knowledge of Numerology  through exclusive online and live training, hands-on learning, webinars, and personalized consultations.
+      </p>
+      <div class="verticals-grid">
+        <article class="vertical-card card-aos aos-delay-1">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 2 L2 22 L22 22 Z" fill="#fff"/></svg>
+          </div>
+          <h3>Reports</h3>
+          <p>Discover all of your fingerprints with our ClickNumerology App. Create detailed Numerology reports and understand your life patterns with clarity and confidence.</p>
+        </article>
+        <article class="vertical-card card-aos aos-delay-2">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 2 L2 22 L22 22 Z" fill="#fff"/></svg>
+          </div>
+          <h3>Numerology Consultations</h3>
+          <p>Receive personalized guidance that realigns your life using your name and birth date to make better decisions.</p>
+        </article>
+        <article class="vertical-card card-aos aos-delay-3">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 2 L2 22 L22 22 Z" fill="#fff"/></svg>
+          </div>
+          <h3>Products & Yantras</h3>
+          <p>Tools created to balance your inner energies and external surroundings for positive energy flow.</p>
+        </article>
+        <article class="vertical-card card-aos aos-delay-4">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 2 L2 22 L22 22 Z" fill="#fff"/></svg>
+          </div>
+          <h3>Numerology Expert</h3>
+          <p>Online and offline programs to learn how numbers and directions influence your life and decisions.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Expert Section -->
+  <section class="expert-section" aria-labelledby="expert-title">
+    <div class="container">
+      <div class="expert-grid">
+        <div>
+          <h2 id="expert-title" class="section-title aos">Our Visionary Expert</h2>
+          <p class="section-subtitle aos aos-delay-1" style="text-align:left;max-width:none;">
+            For over 25 years, Chandan  Jain has brought clarity to the science of numbers and direction. His research-driven approach has helped over 50,000 people in 30+ countries.
+          </p>
+          <a href="#" class="cta aos aos-delay-2">Explore Services →</a>
+          <div class="stats aos aos-delay-3">
+            <div class="stat-item">
+              <div class="stat-num">25+</div>
+              <div class="stat-label">Years of Experience</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">40K+</div>
+              <div class="stat-label">Students Trained</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">50K+</div>
+              <div class="stat-label">Happy Clients</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">1.5M+</div>
+              <div class="stat-label">Social Media Following</div>
+            </div>
+          </div>
+        </div>
+        <figure class="expert-img aos aos-delay-2">
+          <img src="./expert.jpeg" alt="Chandan  Jain – Expert in Numerology ">
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ + CTA -->
+  <section class="faq-section" aria-labelledby="faq-title">
+    <div class="container">
+      <h2 id="faq-title" class="section-title aos">Find Your Life’s Path</h2>
+      <div class="faq-grid">
+        <aside class="cta-box aos aos-delay-1">
+          <h2>Your birth date is written in time, but your future is written by you.</h2>
+          <p>Numerology gives you the tools to understand and harness your energy to shape the life you want.</p>
+          <a href="#" onclick="openBookingModal(); return false;" class="cta">BOOK YOUR APPOINMENT</a>
+        </aside>
+        <section class="faq aos aos-delay-2" aria-labelledby="faq-heading">
+          <h2 id="faq-heading">Frequently Asked Questions</h2>
+          <div class="faq-item">
+            <h3>Do Numerology  help in real life?</h3>
+            <p>Yes, when applied correctly. They help you make conscious decisions and break repetitive cycles.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Will this fix all my problems?</h3>
+            <p>No. It offers awareness and tools to shift your energy and perspective.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Do I have to spend a lot of money on remedies?</h3>
+            <p>No. Most remedies are simple, inexpensive, and based on colour and mindset.</p>
+          </div>
+          <div class="faq-item">
+            <h3>When will I see a change after the session?</h3>
+            <p>It varies. Some feel immediate shifts, others gradual change over weeks or months.</p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <!-- Offerings -->
+  <section class="offerings" aria-labelledby="offerings-title">
+    <div class="container">
+      <h2 id="offerings-title" class="section-title aos">Our Offerings</h2>
+      <p class="section-subtitle aos aos-delay-1">
+        Structured learning, professional consultations, products, and practical tools designed to help you grow through Numerology .
+      </p>
+      <div class="cards">
+        <article class="card card-aos aos-delay-1">
+          <h3>Consultations</h3>
+          <p>Personalized guidance based on Numerology .</p>
+        </article>
+        <article class="card card-aos aos-delay-2">
+          <h3>Professional Courses</h3>
+          <p>Learn step-by-step systems in Numerology .</p>
+        </article>
+        <article class="card card-aos aos-delay-3">
+          <h3>Products & Tools</h3>
+          <p>Yantras, reports, and calculators for energy balance.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer aria-labelledby="footer-title">
+    <div class="container">
+      <div class="footer-inner aos">
+        <div>
+          <strong id="footer-title">Chandan  Jain</strong>
+          A Holistic Numerology Expert<br>
+          Since 2000 | New Delhi, India
+        </div>
+        <div>
+          <strong>Products</strong><br>
+          <a href="#">Numerology Products</a><br>
+          <a href="#">Yantras</a><br>
+          <a href="#">Online Numerology Course</a><br>
+        </div>
+        <div>
+          <strong>Quick Links</strong><br>
+          <a href="#">Training Programs</a><br>
+          <a href="#">Collaboration</a><br>
+          <a href="#">Blog</a><br>
+          <a href="#">Knowledge Videos</a><br>
+          <a href="#">Episode Consultancy Support</a><br>
+          <a href="#">Contact Us</a>
+        </div>
+        <div>
+          <strong>Consultancy</strong><br>
+          <a href="#">Consultancy Numerology</a><br>
+          <strong>Contact Us</strong><br>
+          +91 999 999 2323<br>
+          info@arviendsud.com<br><br>
+          <div class="social-links" aria-label="Social media links">
+            <a href="#" aria-label="Facebook">Facebook</a>
+            <a href="#" aria-label="Instagram">Instagram</a>
+            <a href="#" aria-label="YouTube">YouTube</a>
+          </div>
+        </div>
+        <div class="newsletter">
+          <strong>Newsletter</strong><br>
+          Enter your email address<br>
+          <form>
+            <input type="email" placeholder="Your email" aria-label="Email for newsletter" required>
+          </form>
+        </div>
+      </div>
+      <div class="copyright aos">
+        © 2026 Chandan  Jain<br>
+        <a href="#">Privacy Policy</a> · <a href="#">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- === Enhanced Booking Modal with Custom Calendar & Time Grid === -->
+  <div id="bookingModal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <span class="close" onclick="closeBookingModal()">&times;</span>
+      <h2>Book Your Appointment</h2>
+      <p class="modal-subtitle">Select a preferred date and time slot for your numerology session or free report.</p>
+
+      <!-- Custom Calendar -->
+      <div class="calendar">
+        <div class="calendar-header">
+          <button onclick="prevMonth()">&lt;</button>
+          <h3 id="monthYear"></h3>
+          <button onclick="nextMonth()">&gt;</button>
+        </div>
+        <div class="calendar-grid calendar-weekdays">
+          <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+        </div>
+        <div class="calendar-grid" id="calendarDays"></div>
+      </div>
+
+      <!-- Time Slots -->
+      <div class="time-slots">
+        <h4>Available Time Slots</h4>
+        <div class="slot-group" id="timeSlotsMorning">
+          <h5 style="width:100%; font-size:0.95rem; color:#666; margin:0.6rem 0 0.3rem;">Morning</h5>
+          <!-- Filled by JS -->
+        </div>
+        <div class="slot-group" id="timeSlotsAfternoon">
+          <h5 style="width:100%; font-size:0.95rem; color:#666; margin:0.6rem 0 0.3rem;">Afternoon</h5>
+        </div>
+        <div class="slot-group" id="timeSlotsEvening">
+          <h5 style="width:100%; font-size:0.95rem; color:#666; margin:0.6rem 0 0.3rem;">Evening</h5>
+        </div>
+      </div>
+
+      <p class="info-note">Times in IST. Availability subject to confirmation.</p>
+
+      <button type="button" id="confirmBtn" onclick="confirmAndRedirect()" disabled>Confirm & Open WhatsApp</button>
+    </div>
+  </div>
+
+  <script>
+/* ================================
+   PRELOADER
+================================ */
+let bookedSlots = [];
+async function fetchBookings() {
+  try {
+    const res = await fetch("/api/book");
+    bookedSlots = await res.json();
+  } catch (err) {
+    console.error("Error fetching bookings", err);
+  }
+}
+window.addEventListener("load", function () {
+  const preloader = document.getElementById("preloader");
+  if (preloader) {
+    setTimeout(() => {
+      preloader.classList.add("fade-out");
+    }, 1500);
+  }
+});
+
+/* ================================
+   SCROLL ANIMATION
+================================ */
+document.addEventListener("DOMContentLoaded", function () {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animated");
+        }
+      });
+    },
+    {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px",
+    }
+  );
+
+  document.querySelectorAll(".aos, .card-aos, .hero-img-aos").forEach((el) => {
+    observer.observe(el);
+  });
+});
+
+/* ================================
+   BOOKING MODAL LOGIC
+================================ */
+
+let selectedDate = null;
+let selectedTime = null;
+let currentMonth = new Date().getMonth();
+let currentYear = new Date().getFullYear();
+
+const months = [
+  "January","February","March","April","May","June",
+  "July","August","September","October","November","December"
+];
+
+/* ================================
+   RENDER CALENDAR
+================================ */
+function renderCalendar() {
+  const monthYear = document.getElementById("monthYear");
+  const daysContainer = document.getElementById("calendarDays");
+  if (!monthYear || !daysContainer) return;
+
+  const today = new Date();
+  const todayOnly = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+
+  monthYear.textContent = `${months[currentMonth]} ${currentYear}`;
+  daysContainer.innerHTML = "";
+
+  const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+  const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+
+  for (let i = 0; i < firstDay; i++) {
+    daysContainer.appendChild(document.createElement("div"));
+  }
+
+  for (let day = 1; day <= daysInMonth; day++) {
+    const dateObj = new Date(currentYear, currentMonth, day);
+    const dateOnly = new Date(dateObj.getFullYear(), dateObj.getMonth(), dateObj.getDate());
+
+    const isPast = dateOnly < todayOnly;
+    const isToday = dateOnly.getTime() === todayOnly.getTime();
+    const isSelected =
+      selectedDate &&
+      selectedDate.getDate() === day &&
+      selectedDate.getMonth() === currentMonth &&
+      selectedDate.getFullYear() === currentYear;
+
+    const dayEl = document.createElement("div");
+    dayEl.className = "calendar-day";
+    dayEl.textContent = day;
+
+    if (isPast) dayEl.classList.add("disabled");
+    if (isToday) dayEl.classList.add("today");
+    if (isSelected) dayEl.classList.add("selected");
+
+    if (!isPast) {
+      dayEl.onclick = function () {
+        selectedDate = new Date(currentYear, currentMonth, day);
+        selectedTime = null;
+        document.querySelectorAll(".time-slot").forEach((el) =>
+          el.classList.remove("active")
+        );
+        document.getElementById("confirmBtn").disabled = true;
+        renderTimeSlots();
+      };
+    }
+
+    daysContainer.appendChild(dayEl);
+  }
+}
+
+/* ================================
+   MONTH NAVIGATION
+================================ */
+function prevMonth() {
+  currentMonth--;
+  if (currentMonth < 0) {
+    currentMonth = 11;
+    currentYear--;
+  }
+  renderCalendar();
+}
+
+function nextMonth() {
+  currentMonth++;
+  if (currentMonth > 11) {
+    currentMonth = 0;
+    currentYear++;
+  }
+  renderCalendar();
+}
+
+/* ================================
+   RENDER TIME SLOTS
+================================ */
+function renderTimeSlots() {
+  const morning = document.getElementById("timeSlotsMorning");
+  const afternoon = document.getElementById("timeSlotsAfternoon");
+  const evening = document.getElementById("timeSlotsEvening");
+  if (!morning || !afternoon || !evening) return;
+
+  morning.innerHTML = "<h5>Morning</h5>";
+  afternoon.innerHTML = "<h5>Afternoon</h5>";
+  evening.innerHTML = "<h5>Evening</h5>";
+
+  const times = [
+    { time: "10:00", period: "Morning" }, { time: "10:30", period: "Morning" },
+    { time: "11:00", period: "Morning" }, { time: "11:30", period: "Morning" },
+    { time: "12:00", period: "Afternoon" }, { time: "12:30", period: "Afternoon" },
+    { time: "13:00", period: "Afternoon" }, { time: "13:30", period: "Afternoon" },
+    { time: "14:00", period: "Afternoon" }, { time: "14:30", period: "Afternoon" },
+    { time: "15:00", period: "Afternoon" }, { time: "15:30", period: "Afternoon" },
+    { time: "16:00", period: "Evening" }, { time: "16:30", period: "Evening" },
+    { time: "17:00", period: "Evening" }, { time: "17:30", period: "Evening" },
+    { time: "18:00", period: "Evening" }, { time: "18:30", period: "Evening" }
+  ];
+
+  times.forEach((slot) => {
+  const btn = document.createElement("div");
+  btn.className = "time-slot";
+  btn.textContent = slot.time;
+
+  // 🔥 Disable if already booked
+  const isBooked = bookedSlots.some(
+    (b) =>
+      b.slot === slot.time &&
+      selectedDate &&
+      b.date === selectedDate.toDateString()
+  );
+
+  if (isBooked) {
+    btn.classList.add("disabled");
+    btn.style.opacity = "0.5";
+    btn.style.pointerEvents = "none";
+  }
+
+  btn.onclick = function () {
+    if (!selectedDate || isBooked) return;
+
+    document.querySelectorAll(".time-slot").forEach((el) =>
+      el.classList.remove("active")
+    );
+
+    btn.classList.add("active");
+    selectedTime = slot.time;
+    document.getElementById("confirmBtn").disabled = false;
+  };
+
+  if (slot.period === "Morning") morning.appendChild(btn);
+  else if (slot.period === "Afternoon") afternoon.appendChild(btn);
+  else evening.appendChild(btn);
+  });
+}
+
+/* ================================
+   OPEN / CLOSE MODAL
+================================ */
+async function openBookingModal() {
+  const modal = document.getElementById("bookingModal");
+  if (!modal) return;
+
+  selectedDate = null;
+  selectedTime = null;
+
+  await fetchBookings(); // 🔥 IMPORTANT
+
+  modal.style.display = "flex";
+  setTimeout(() => modal.classList.add("show"), 10);
+
+  renderCalendar();
+  renderTimeSlots();
+
+  document.getElementById("confirmBtn").disabled = true;
+}
+function closeBookingModal() {
+  const modal = document.getElementById("bookingModal");
+  if (!modal) return;
+
+  modal.classList.remove("show");
+  setTimeout(() => {
+    modal.style.display = "none";
+  }, 400);
+}
+
+/* ================================
+   CONFIRM BOOKING
+================================ */
+async function confirmAndRedirect() {
+  if (!selectedDate || !selectedTime) return;
+
+  const btn = document.getElementById("confirmBtn");
+  btn.textContent = "Booking...";
+  btn.disabled = true;
+
+  const dateString = selectedDate.toDateString();
+
+  try {
+    const res = await fetch("/api/book", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        slot: selectedTime,
+        date: dateString,
+      }),
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      alert(data.message);
+      btn.textContent = "Confirm & Open WhatsApp";
+      btn.disabled = false;
+      return;
+    }
+
+    // After saving → open WhatsApp
+    const formattedDate = selectedDate.toLocaleDateString("en-IN", {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+
+    const message =
+      `Hi Chandan Ji,\n\nI'd like to book an appointment:\nDate: ${formattedDate}\nTime: ${selectedTime} IST`;
+
+    const encodedMsg = encodeURIComponent(message);
+    window.open(`https://wa.me/919322617627?text=${encodedMsg}`, "_blank");
+
+    closeBookingModal();
+  } catch (err) {
+    alert("Something went wrong");
+  }
+
+  btn.textContent = "Confirm & Open WhatsApp";
+  btn.disabled = false;
+}
+
+/* ================================
+   CLOSE ON OUTSIDE CLICK
+================================ */
+document.addEventListener("click", function (e) {
+  const modal = document.getElementById("bookingModal");
+  if (modal && e.target === modal) {
+    closeBookingModal();
+  }
+});
+</script>
+</body>
+</html>
